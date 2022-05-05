@@ -13,7 +13,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  List<Widget> screens = [HomeScreen(),SettingsScreen()];
+  List<Widget> screens = [FillDataScreen(),SettingsScreen()];
   int currIndex = 0;
 
   @override
