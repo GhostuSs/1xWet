@@ -16,6 +16,9 @@ class $AssetsImagesGen {
   SvgGenImage get buyPremium =>
       const SvgGenImage('assets/images/buyPremium.svg');
 
+  /// File path: assets/images/cup.svg
+  SvgGenImage get cup => const SvgGenImage('assets/images/cup.svg');
+
   /// File path: assets/images/onboarding.png
   AssetGenImage get onboardingPng =>
       const AssetGenImage('assets/images/onboarding.png');

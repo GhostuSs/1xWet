@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive/hive.dart';
@@ -9,7 +7,6 @@ import 'package:x_wet/uikit/1x_wet_label.dart';
 import 'package:x_wet/uikit/raw_bottomsheet.dart';
 import 'package:x_wet/uikit/raw_infofield.dart';
 import '../../../utils/color_palette/colors.dart';
-import '../../onboarding/ui/onboarding.dart';
 
 class FillDataScreen extends StatefulWidget {
   const FillDataScreen({Key? key}) : super(key: key);
