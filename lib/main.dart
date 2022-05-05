@@ -44,20 +44,20 @@ class App extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           bottomNavigationBarTheme: BottomNavigationBarThemeData(
-              selectedItemColor: AppColors.lightBlue,
+              selectedItemColor: AppColors.aquaBlue,
               selectedLabelStyle: TextStyle(
                   fontFamily: 'MontBold',
                   fontWeight: FontWeight.w400,
                   fontSize: 12.h),
               showUnselectedLabels: true,
               showSelectedLabels: true,
-              unselectedItemColor:AppColors.lightBlue.withOpacity(0.3),
+              unselectedItemColor:AppColors.aquaBlue.withOpacity(0.3),
               unselectedLabelStyle: TextStyle(
-                  color: AppColors.lightBlue.withOpacity(0.3),
+                  color: AppColors.aquaBlue.withOpacity(0.3),
                   fontFamily: 'MontBold',
                   fontWeight: FontWeight.w400,
                   fontSize: 12.h),
-              unselectedIconTheme: IconThemeData(color: AppColors.lightBlue.withOpacity(0.3),)),
+              unselectedIconTheme: IconThemeData(color: AppColors.aquaBlue.withOpacity(0.3),)),
           textTheme: TextTheme(
               button: TextStyle(
                 fontSize: 45.sp,
