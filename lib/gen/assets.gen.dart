@@ -43,6 +43,9 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/water.svg
   SvgGenImage get water => const SvgGenImage('assets/images/water.svg');
+
+  /// File path: assets/images/watercup.svg
+  SvgGenImage get watercup => const SvgGenImage('assets/images/watercup.svg');
 }
 
 class Assets {

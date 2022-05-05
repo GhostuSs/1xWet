@@ -20,10 +20,11 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return WillPopScope(
         child: Scaffold(
+          backgroundColor: Color(0xFF243A6B),
           bottomNavigationBar: Container(
             decoration: BoxDecoration(
                 border: Border(
-                    top: BorderSide(color: Colors.black.withOpacity(0.8)))),
+                    top: BorderSide(color: Colors.white.withOpacity(0.3)))),
             child: BottomNavigationBar(
               items: [
                 BottomNavigationBarItem(
@@ -40,7 +41,7 @@ class _MainScreenState extends State<MainScreen> {
                     activeIcon: Assets.images.settings.svg(
                         color: AppColors.aquaBlue, width: 30.w, height: 30.h)),
               ],
-              backgroundColor: Color(0xFF031434),
+              backgroundColor: Color(0xFF243A6B),
               unselectedLabelStyle: TextStyle(
                 fontFamily: 'MontBold',
                 fontWeight: FontWeight.w400,

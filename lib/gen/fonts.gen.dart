@@ -10,4 +10,7 @@ class FontFamily {
 
   /// Font family: MontBold
   static const String montBold = 'MontBold';
+
+  /// Font family: MontMedium
+  static const String montMedium = 'MontMedium';
 }

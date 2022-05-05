@@ -20,14 +20,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                Color(0xFF041B47),
-                Color(0xFF031434),
-              ],
-            )),
+            color: Color(0xFF243A6B),
+        ),
         child: Center(
           child: Column(
             children: <Widget>[

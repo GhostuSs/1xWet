@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:x_wet/models/user_data/user.dart';
 import 'package:x_wet/utils/color_palette/colors.dart';
 import 'package:x_wet/utils/routes/routes.dart';
 
@@ -22,6 +23,7 @@ Future<void> main() async {
     directory = await getApplicationDocumentsDirectory();
   }
   Hive.init(directory.path);
+  Hive.registerAdapter<UserData>(UserDataAdapter());
   runApp(const App());
 }
 
