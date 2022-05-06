@@ -78,25 +78,27 @@ class RawBottomSheet extends StatelessWidget {
             ],
           ),
           Container(
-            height: 215.h,
+            height: 220.h,
             child: CupertinoPicker(
-                itemExtent: 55.h,
+              itemExtent: 70.h,
                 onSelectedItemChanged: onSelectedItemChanged,
-                selectionOverlay: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10.w),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Divider(
-                        color: Colors.black,
-                      ),
-                      SizedBox(
-                        height: 20.h,
-                      ),
-                      Divider(
-                        color: Colors.black,
-                      ),
-                    ],
+                selectionOverlay: Center(
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 10.w),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Divider(
+                          color: Colors.black,
+                        ),
+                        SizedBox(
+                          height: 20.h,
+                        ),
+                        Divider(
+                          color: Colors.black,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 children: [
