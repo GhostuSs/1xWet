@@ -80,31 +80,34 @@ class RawBottomSheet extends StatelessWidget {
           Container(
             height: 220.h,
             child: CupertinoPicker(
-              itemExtent: 70.h,
+              itemExtent: 48.h,
                 onSelectedItemChanged: onSelectedItemChanged,
-                selectionOverlay: Center(
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10.w),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Divider(
-                          color: Colors.black,
-                        ),
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                        Divider(
-                          color: Colors.black,
-                        ),
-                      ],
-                    ),
+                selectionOverlay: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10.w),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Divider(
+                        color: Colors.black,
+                      ),
+                      Spacer(),
+                      Divider(
+                        color: Colors.black,
+                      ),
+                    ],
                   ),
                 ),
                 children: [
                   for (var el in data)
-                    Center(
-                      child: Text(el),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                          Text(el,style: TextStyle(
+                            fontSize: 24.w,
+                          ),),
+                      ],
                     )
                 ]),
           )

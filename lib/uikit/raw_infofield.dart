@@ -37,13 +37,21 @@ class RawInfoField extends StatelessWidget{
                   color: AppColors.lightBlue.withOpacity(0.25),
                   border: Border.all(color: AppColors.aquaBlue),
                 ),
-                padding: EdgeInsets.only(top: 8.h,bottom: 8.h,left: 16.w,right: 32.w),
-                child: Text(value,style: TextStyle(
+                padding: EdgeInsets.only(top: 8.h,bottom: 8.h,left: 16.w,right: 10.w),
+                child: Row(
+                children: [
+                  Text(value,style: TextStyle(
                   color: AppColors.white,
                   fontFamily: 'MontMedium',
                   fontSize: 18.h,
                   fontWeight: FontWeight.w500,
-                ),),
+                ),
+                ),
+                  Spacer(),
+                  Icon(Icons.arrow_forward_ios,color: AppColors.aquaBlue,),
+
+                ]
+                ),
               ),
             )
           ],

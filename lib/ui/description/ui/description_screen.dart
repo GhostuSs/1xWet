@@ -26,19 +26,20 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
   int currIndex = 0;
   late List<Widget> screens;
   List<String> waterData =
-      List.generate(101, (index) => (index * 10).toString());
+      List.generate(100, (index) => ((index+1) * 10).toString());
   @override
   void initState() {
     for (int i = 0; i < widget.dayWater.waterValues!.length; i++) {
-      drankMl = widget.dayWater.waterValues![i];
+      drankMl += widget.dayWater.waterValues![i];
     }
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    drankMl=0;
     for (int i = 0; i < widget.dayWater.waterValues!.length; i++) {
-      drankMl = widget.dayWater.waterValues![i];
+      drankMl += widget.dayWater.waterValues![i];
     }
     return Scaffold(
         backgroundColor: Color(0xFF243A6B),
@@ -169,6 +170,9 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                           Navigator.pop(context);
                         },
                         onOk: () async {
+                          if(waterVal==0){
+                            waterVal=10;
+                          }
                           final box = await Hive.openBox<WaterDaysInMonth>('data');
                           final listData = box.values.first;
                           List<int> list = widget.dayWater.waterValues!;

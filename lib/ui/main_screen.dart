@@ -72,7 +72,7 @@ class _MainScreenState extends State<MainScreen> {
                                 color: AppColors.aquaBlue.withOpacity(0.3),
                                 width: 30.w,
                                 height: 30.h),
-                            label: 'Water',
+                            label: 'Water'.toUpperCase(),
                             activeIcon: Assets.images.water.svg(
                                 color: AppColors.aquaBlue,
                                 width: 30.w,

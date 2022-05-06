@@ -21,12 +21,21 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(child: Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Color(0xFF142850),
       body: Container(
+        width: double.infinity,
         decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color(0xFF142850),
+              Color(0xFF253B6E)
+            ]
+          ),
             image: DecorationImage(
                 image: AssetImage('assets/images/onboarding.png'),
-                fit: BoxFit.cover
+                fit: BoxFit.contain
             )
         ),
         child: Column(
@@ -110,15 +119,15 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       style: TextStyle(
                         color: AppColors.aquaBlue,
                         fontSize: 24.h,
-                        fontWeight: FontWeight.w100,
-                        fontFamily: 'MontBold',
+                        fontWeight: FontWeight.w500,
+                        fontFamily: 'MontMedium',
                       ),
                       children: [TextSpan(
                           text: 'to drink water',
                           style: TextStyle(
                               color: AppColors.white,
-                              fontWeight: FontWeight.w100,
-                              fontFamily: 'MontBold',
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'MontMedium',
                               fontSize: 24.w,
                               shadows: [
                                 Shadow(
@@ -150,15 +159,15 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           style: TextStyle(
                             color: AppColors.aquaBlue,
                             fontSize: 24.h,
-                            fontWeight: FontWeight.w100,
-                            fontFamily: 'MontBold',
+                            fontWeight: FontWeight.w500,
+                            fontFamily: 'MontMedium',
                           ),
                           children: [TextSpan(
                               text: 'to the calendar',
                               style: TextStyle(
                                   color: AppColors.white,
-                                  fontWeight: FontWeight.w100,
-                                  fontFamily: 'MontBold',
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'MontMedium',
                                   fontSize: 24.w,
                                   shadows: [
                                     Shadow(
@@ -181,7 +190,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             Padding(
               padding: EdgeInsets.symmetric(horizontal:112.w,vertical: 12.h),
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   RichText(
                       textAlign:TextAlign.center,
@@ -190,8 +199,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           style: TextStyle(
                             color: AppColors.aquaBlue,
                             fontSize: 24.h,
-                            fontWeight: FontWeight.w100,
-                            fontFamily: 'MontBold',
+                            fontWeight: FontWeight.w500,
+                            fontFamily: 'MontMedium',
                           ),
                       )),
                 ],
@@ -244,7 +253,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         'Terms of use',
                         style: TextStyle(
                             color: AppColors.white,
-                            fontWeight: FontWeight.w100,
+                            fontWeight: FontWeight.w500,
                             fontFamily: 'MontBold',
                             fontSize: 14.w),
                       ),
@@ -261,7 +270,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         'Restore',
                         style: TextStyle(
                             color: AppColors.white,
-                            fontWeight: FontWeight.w100,
+                            fontWeight: FontWeight.w500,
                             fontFamily: 'MontBold',
                             fontSize: 14.w),
                       ),
@@ -272,7 +281,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         'Privacy Policy',
                         style: TextStyle(
                             color: AppColors.white,
-                            fontWeight: FontWeight.w100,
+                            fontWeight: FontWeight.w500,
                             fontFamily: 'MontBold',
                             fontSize: 14.w),
                       ),

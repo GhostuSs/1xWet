@@ -17,11 +17,10 @@ class FillDataScreen extends StatefulWidget {
 }
 
 class _FillDataScreenState extends State<FillDataScreen> {
-
   final sexData = ['Male', 'Female'];
-  final ageData = List.generate(88, (index) => '${index+12}');
-  final weightData = List.generate(196, (index) => '${index+25}');
-  final heightData = List.generate(96, (index) => '${index+125}');
+  final ageData = List.generate(88, (index) => '${index + 12}');
+  final weightData = List.generate(196, (index) => '${index + 25}');
+  final heightData = List.generate(96, (index) => '${index + 125}');
   String sex = '';
   String age = '';
   String weight = '';
@@ -48,18 +47,24 @@ class _FillDataScreenState extends State<FillDataScreen> {
                     isDismissible: false,
                     context: context,
                     builder: (_) => RawBottomSheet(
-                      label: 'Sex',
-                      data: sexData,
-                      onSelectedItemChanged: (int) => setState(() {
-                        sex = sexData[int];
-                      }), onOk: ()=>Navigator.pop(context),
-                      onCancel: (){
-                        Navigator.pop(context);
-                        setState(() {
-                          sex='';
-                        });
-                      },
-                    )),
+                          label: 'Sex',
+                          data: sexData,
+                          onSelectedItemChanged: (int) => setState(() {
+                            sex = sexData[int];
+                          }),
+                          onOk: (){
+                            setState(() {
+                              if (sex == '') sex = sexData.first;
+                            });
+                            Navigator.pop(context);
+                          },
+                          onCancel: () {
+                            Navigator.pop(context);
+                            setState(() {
+                              sex = '';
+                            });
+                          },
+                        )),
                 label: 'Sex',
                 value: sex),
             Padding(
@@ -69,18 +74,24 @@ class _FillDataScreenState extends State<FillDataScreen> {
                       isDismissible: false,
                       context: context,
                       builder: (_) => RawBottomSheet(
-                        label: 'Age',
-                        data: ageData,
-                        onSelectedItemChanged: (int) => setState(() {
-                          age = ageData[int];
-                        }), onOk: ()=>Navigator.pop(context),
-                        onCancel: (){
-                          Navigator.pop(context);
-                          setState(() {
-                            age='';
-                          });
-                        },
-                      )),
+                            label: 'Age',
+                            data: ageData,
+                            onSelectedItemChanged: (int) => setState(() {
+                              age = ageData[int];
+                            }),
+                            onOk: (){
+                              setState(() {
+                                if (age == '') age = ageData.first;
+                              });
+                              Navigator.pop(context);
+                            },
+                            onCancel: () {
+                              Navigator.pop(context);
+                              setState(() {
+                                age = '';
+                              });
+                            },
+                          )),
                   label: 'Age',
                   value: age),
             ),
@@ -91,18 +102,24 @@ class _FillDataScreenState extends State<FillDataScreen> {
                       isDismissible: false,
                       context: context,
                       builder: (_) => RawBottomSheet(
-                        label: 'Height',
-                        data: heightData,
-                        onSelectedItemChanged: (int) => setState(() {
-                          height = heightData[int];
-                        }), onOk: ()=>Navigator.pop(context),
-                        onCancel: (){
-                          Navigator.pop(context);
-                          setState(() {
-                            height='';
-                          });
-                        },
-                      )),
+                            label: 'Height',
+                            data: heightData,
+                            onSelectedItemChanged: (int) => setState(() {
+                              height = heightData[int];
+                            }),
+                            onOk: () {
+                              setState(() {
+                                if (height == '') height = heightData.first;
+                              });
+                              Navigator.pop(context);
+                            },
+                            onCancel: () {
+                              Navigator.pop(context);
+                              setState(() {
+                                height = '';
+                              });
+                            },
+                          )),
                   label: 'Height',
                   value: height),
             ),
@@ -111,52 +128,73 @@ class _FillDataScreenState extends State<FillDataScreen> {
                     isDismissible: false,
                     context: context,
                     builder: (_) => RawBottomSheet(
-                      label: 'Weight',
-                      data: weightData,
-                      onSelectedItemChanged: (int) => setState(() {
-                        weight = weightData[int];
-                      }), onOk: ()=>Navigator.pop(context),
-                      onCancel: (){
-                        Navigator.pop(context);
-                        setState(() {
-                          weight='';
-                        });
-                      },
-                    )),
+                          label: 'Weight',
+                          data: weightData,
+                          onSelectedItemChanged: (int) => setState(() {
+                            weight = weightData[int];
+                          }),
+                          onOk: (){
+                            setState(() {
+                              if (weight == '') weight = weightData.first;
+                            });
+                            Navigator.pop(context);
+                          },
+                          onCancel: () {
+                            Navigator.pop(context);
+                            setState(() {
+                              weight = '';
+                            });
+                          },
+                        )),
                 label: 'Weight',
                 value: weight),
-            SizedBox(height: 32.h,),
-            Visibility(
-                visible: age.isNotEmpty&&sex.isNotEmpty&&height.isNotEmpty&&weight.isNotEmpty,
-                child: InkWell(
-                  onTap: () async {
-                    final box = await Hive.openBox<UserData>('userdata');
-                    box.put('userdata', UserData(
-                        age: int.tryParse(age),
-                        sex: sex,
-                        height: int.tryParse(height),
-                        weight: int.tryParse(weight)
-                    ));
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (_)=>MainScreen()));
-                  },
-                  borderRadius: BorderRadius.circular(12.r),
-                  child: Container(
-                    width: 253.w,
-                    height: 50.h,
-                    decoration: BoxDecoration(
-                        color: AppColors.aquaBlue,
-                        borderRadius: BorderRadius.circular(12.r)
-                    ),
-                    child: Center(
-                      child: Text('NEXT',style:TextStyle(
-                        color: Colors.white,
-                        fontFamily: 'MontMedium',
-                        fontSize: 22.w,
-                        fontWeight: FontWeight.w700,
-                      )),
-                    ),
+            SizedBox(
+              height: 32.h,
+            ),
+            Opacity(
+              opacity: age.isNotEmpty &&
+                      sex.isNotEmpty &&
+                      height.isNotEmpty &&
+                      weight.isNotEmpty
+                  ? 1.0
+                  : 0.3,
+              child: InkWell(
+                onTap: age.isNotEmpty &&
+                        sex.isNotEmpty &&
+                        height.isNotEmpty &&
+                        weight.isNotEmpty
+                    ? () async {
+                        final box = await Hive.openBox<UserData>('userdata');
+                        box.put(
+                            'userdata',
+                            UserData(
+                                age: int.tryParse(age),
+                                sex: sex,
+                                height: int.tryParse(height),
+                                weight: int.tryParse(weight)));
+                        Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (_) => MainScreen()));
+                      }
+                    : null,
+                borderRadius: BorderRadius.circular(12.r),
+                child: Container(
+                  width: 253.w,
+                  height: 50.h,
+                  decoration: BoxDecoration(
+                      color: AppColors.aquaBlue,
+                      borderRadius: BorderRadius.circular(12.r)),
+                  child: Center(
+                    child: Text('NEXT',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'MontMedium',
+                          fontSize: 22.w,
+                          fontWeight: FontWeight.w700,
+                        )),
                   ),
-                ))
+                ),
+              ),
+            )
           ],
         ),
       ),
