@@ -79,13 +79,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         fontWeight: FontWeight.w900,
                         fontFamily: 'MontBold',
                         fontSize: 50.w,
-                        shadows: [
-                          Shadow(
-                            color: Colors.black.withOpacity(0.5),
-                            offset: Offset(1,1),
-                            blurRadius: 2,
-                          )
-                        ]
                     ),
                   ),
                 ),
@@ -129,13 +122,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                               fontWeight: FontWeight.w500,
                               fontFamily: 'MontMedium',
                               fontSize: 24.w,
-                              shadows: [
-                                Shadow(
-                                  color: Colors.black.withOpacity(0.5),
-                                  offset: Offset(1,1),
-                                  blurRadius: 1,
-                                )
-                              ]
                           )
                       )]
                   )),
@@ -169,13 +155,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                   fontWeight: FontWeight.w500,
                                   fontFamily: 'MontMedium',
                                   fontSize: 24.w,
-                                  shadows: [
-                                    Shadow(
-                                      color: Colors.black.withOpacity(0.5),
-                                      offset: Offset(1,1),
-                                      blurRadius: 1,
-                                    )
-                                  ]
                               )
                           )]
                       )),
