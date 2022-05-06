@@ -130,7 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Color checkColor(WaterDay dayWater) {
-    if((dayWater.date!.day-1)==DateTime.now().day) {
+    if((dayWater.date!.day)==DateTime.now().day) {
       if (dayWater.waterValues?.isEmpty == true) return AppColors.red;
       if(dayWater.waterValues?.isEmpty == false && checkWaterDrunk(dayWater)) return AppColors.aquaBlue;
       if(dayWater.waterValues?.isEmpty == false) return AppColors.yellow;
