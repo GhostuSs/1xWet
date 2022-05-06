@@ -27,13 +27,12 @@ Future<void> main() async {
   Hive..registerAdapter<UserData>(UserDataAdapter())
       ..registerAdapter<WaterDay>(WaterDayAdapter())
       ..registerAdapter<WaterDaysInMonth>(WaterDaysInMonthAdapter());
-
   await Hive.openBox<WaterDaysInMonth>('data');
-  // final box = await Hive.openBox<UserData>('userdata');
+   final box = await Hive.openBox<UserData>('userdata');
   // final boxs = await Hive.openBox<WaterDaysInMonth>('data');
   // await boxs.clear();
   // await box.clear();
-  //if(box.isEmpty==true)box.put('userdata', UserData());
+  if(box.isEmpty==true)box.put('userdata', UserData());
   final prem = await Hive.openBox<bool>('premium');
   if (prem.values.isEmpty) await prem.put('premium', false);
   premium = prem.values.first;
@@ -63,7 +62,8 @@ class App extends StatelessWidget {
               selectedLabelStyle: TextStyle(
                   fontFamily: 'MontBold',
                   fontWeight: FontWeight.w400,
-                  fontSize: 12.h),
+                  fontSize: 12.h,
+              ),
               showUnselectedLabels: true,
               showSelectedLabels: true,
               unselectedItemColor:AppColors.aquaBlue.withOpacity(0.3),
