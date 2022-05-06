@@ -6,11 +6,11 @@ part 'user.g.dart';
 class UserData extends HiveObject{
   UserData({this.age,this.sex,this.height,this.weight});
   @HiveField(0)
-  String? sex;
+  String? sex='';
   @HiveField(1)
-  int? age;
+  int? age=0;
   @HiveField(2)
-  int? height;
+  int? height=0;
   @HiveField(3)
-  int? weight;
+  int? weight=0;
 }

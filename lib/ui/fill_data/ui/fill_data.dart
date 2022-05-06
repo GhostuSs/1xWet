@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive/hive.dart';
 import 'package:x_wet/gen/assets.gen.dart';
 import 'package:x_wet/models/user_data/user.dart';
+import 'package:x_wet/ui/main_screen.dart';
 import 'package:x_wet/uikit/1x_wet_label.dart';
 import 'package:x_wet/uikit/raw_bottomsheet.dart';
 import 'package:x_wet/uikit/raw_infofield.dart';
@@ -136,6 +137,7 @@ class _FillDataScreenState extends State<FillDataScreen> {
                         height: int.tryParse(height),
                         weight: int.tryParse(weight)
                     ));
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (_)=>MainScreen()));
                   },
                   borderRadius: BorderRadius.circular(12.r),
                   child: Container(

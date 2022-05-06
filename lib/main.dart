@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:x_wet/models/day/day.dart';
+import 'package:x_wet/models/days_month/days_month.dart';
 import 'package:x_wet/models/user_data/user.dart';
 import 'package:x_wet/utils/color_palette/colors.dart';
 import 'package:x_wet/utils/routes/routes.dart';
@@ -23,7 +25,16 @@ Future<void> main() async {
     directory = await getApplicationDocumentsDirectory();
   }
   Hive.init(directory.path);
-  Hive.registerAdapter<UserData>(UserDataAdapter());
+  Hive..registerAdapter<UserData>(UserDataAdapter())
+      ..registerAdapter<WaterDay>(WaterDayAdapter())
+      ..registerAdapter<WaterDaysInMonth>(WaterDaysInMonthAdapter());
+
+  await Hive.openBox<WaterDaysInMonth>('data');
+  // final box = await Hive.openBox<UserData>('userdata');
+  // final boxs = await Hive.openBox<WaterDaysInMonth>('data');
+  // await boxs.clear();
+  // await box.clear();
+  //if(box.isEmpty==true)box.put('userdata', UserData());
   runApp(const App());
 }
 
