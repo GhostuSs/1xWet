@@ -111,7 +111,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 '${i+1}',
                                 style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 18.w,
+                                    fontSize: 16.w,
                                     fontWeight: FontWeight.w500,
                                     fontFamily: 'MontMedium'),
                               ),
