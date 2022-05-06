@@ -32,6 +32,8 @@ Future<void> main() async {
   // final boxs = await Hive.openBox<WaterDaysInMonth>('data');
   // await boxs.clear();
   // await box.clear();
+  // final boxf = await Hive.openBox<bool>('premium');
+  // await boxf.clear();
   if(box.isEmpty==true)box.put('userdata', UserData());
   final prem = await Hive.openBox<bool>('premium');
   if (prem.values.isEmpty) await prem.put('premium', false);

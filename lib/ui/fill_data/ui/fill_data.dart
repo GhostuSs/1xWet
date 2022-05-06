@@ -151,6 +151,7 @@ class _FillDataScreenState extends State<FillDataScreen> {
             SizedBox(
               height: 32.h,
             ),
+            Spacer(),
             Opacity(
               opacity: age.isNotEmpty &&
                       sex.isNotEmpty &&
@@ -158,39 +159,42 @@ class _FillDataScreenState extends State<FillDataScreen> {
                       weight.isNotEmpty
                   ? 1.0
                   : 0.3,
-              child: InkWell(
-                onTap: age.isNotEmpty &&
-                        sex.isNotEmpty &&
-                        height.isNotEmpty &&
-                        weight.isNotEmpty
-                    ? () async {
-                        final box = await Hive.openBox<UserData>('userdata');
-                        box.put(
-                            'userdata',
-                            UserData(
-                                age: int.tryParse(age),
-                                sex: sex,
-                                height: int.tryParse(height),
-                                weight: int.tryParse(weight)));
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (_) => MainScreen()));
-                      }
-                    : null,
-                borderRadius: BorderRadius.circular(12.r),
-                child: Container(
-                  width: 253.w,
-                  height: 50.h,
-                  decoration: BoxDecoration(
-                      color: AppColors.aquaBlue,
-                      borderRadius: BorderRadius.circular(12.r)),
-                  child: Center(
-                    child: Text('NEXT',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'MontMedium',
-                          fontSize: 22.w,
-                          fontWeight: FontWeight.w700,
-                        )),
+              child: Padding(
+                padding: EdgeInsets.only(bottom: 16.h),
+                child: InkWell(
+                  onTap: age.isNotEmpty &&
+                      sex.isNotEmpty &&
+                      height.isNotEmpty &&
+                      weight.isNotEmpty
+                      ? () async {
+                    final box = await Hive.openBox<UserData>('userdata');
+                    box.put(
+                        'userdata',
+                        UserData(
+                            age: int.tryParse(age),
+                            sex: sex,
+                            height: int.tryParse(height),
+                            weight: int.tryParse(weight)));
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (_) => MainScreen()));
+                  }
+                      : null,
+                  borderRadius: BorderRadius.circular(12.r),
+                  child: Container(
+                    width: 253.w,
+                    height: 50.h,
+                    decoration: BoxDecoration(
+                        color: AppColors.aquaBlue,
+                        borderRadius: BorderRadius.circular(12.r)),
+                    child: Center(
+                      child: Text('NEXT',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'MontMedium',
+                            fontSize: 22.w,
+                            fontWeight: FontWeight.w700,
+                          )),
+                    ),
                   ),
                 ),
               ),

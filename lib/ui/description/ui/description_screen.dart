@@ -38,6 +38,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
   @override
   Widget build(BuildContext context) {
     drankMl=0;
+    waterVal=0;
     for (int i = 0; i < widget.dayWater.waterValues!.length; i++) {
       drankMl += widget.dayWater.waterValues![i];
     }
@@ -148,7 +149,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
               children: [
                 for (int elements in widget.dayWater.waterValues!)
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 26.w,vertical: 10.h),
+                    padding: EdgeInsets.symmetric(horizontal: 24.w,vertical: 10.h),
                     child: WaterWidget(water: elements),
                   ),
               ],
@@ -164,7 +165,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                     builder: (_) => RawBottomSheet(
                         label: 'Water',
                         data: waterData,
-                        onSelectedItemChanged: (value) => waterVal=value*10,
+                        onSelectedItemChanged: (value) => waterVal=value*10+10,
                         onCancel: () {
                           waterVal=0;
                           Navigator.pop(context);
@@ -173,6 +174,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                           if(waterVal==0){
                             waterVal=10;
                           }
+                          print(waterVal);
                           final box = await Hive.openBox<WaterDaysInMonth>('data');
                           final listData = box.values.first;
                           List<int> list = widget.dayWater.waterValues!;
