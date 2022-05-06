@@ -39,7 +39,7 @@ class _FillDataScreenState extends State<FillDataScreen> {
           children: <Widget>[
             XWetLabel(),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 40.h),
+              padding: EdgeInsets.symmetric(vertical: 35.h),
               child: Assets.images.watercup.svg(),
             ),
             RawInfoField(

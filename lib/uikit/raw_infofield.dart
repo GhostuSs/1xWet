@@ -39,6 +39,7 @@ class RawInfoField extends StatelessWidget{
                 ),
                 padding: EdgeInsets.only(top: 8.h,bottom: 8.h,left: 16.w,right: 10.w),
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(value,style: TextStyle(
                   color: AppColors.white,
@@ -48,7 +49,7 @@ class RawInfoField extends StatelessWidget{
                 ),
                 ),
                   Spacer(),
-                  Icon(Icons.arrow_forward_ios,color: AppColors.aquaBlue,),
+                  Icon(Icons.arrow_forward_ios,color: AppColors.aquaBlue,size: 12.h,),
 
                 ]
                 ),

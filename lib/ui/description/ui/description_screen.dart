@@ -42,7 +42,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
     for (int i = 0; i < widget.dayWater.waterValues!.length; i++) {
       drankMl += widget.dayWater.waterValues![i];
     }
-    return Scaffold(
+    return WillPopScope(child: Scaffold(
         backgroundColor: Color(0xFF243A6B),
         bottomNavigationBar: Container(
           decoration: BoxDecoration(
@@ -88,18 +88,30 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
           ),
         ),
         body: currIndex == 0 ? Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
+          Flex(
+            direction: Axis.horizontal,
             children: [
-              Padding(
-                padding: EdgeInsets.only(top: 46.h,left: 15.w),
-                child: InkWell(
-                  onTap: () async {
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (_)=>MainScreen()));
-                  },
-                  child: Center(child: Icon(Icons.arrow_back_ios,color: AppColors.white,)),),
-              ),
-              XWetLabel()
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 46.h,left: 15.w,right: 30.w),
+                      child: InkWell(
+                        onTap: () async {
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (_)=>MainScreen()));
+                        },
+                        child: Center(child: Icon(Icons.arrow_back_ios,color: AppColors.white,)),),
+                    ),
+                  ),
+                  Center(
+                    child: XWetLabel(),
+                  ),
+                  SizedBox(width: 20.w,)
+                ],
+              )
             ],
           ),
           SizedBox(
@@ -208,7 +220,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                 ),
               ))
         ]) : SettingsScreen()
-    );
+    ), onWillPop: ()async=>false);
   }
 
   List<String> months = [
