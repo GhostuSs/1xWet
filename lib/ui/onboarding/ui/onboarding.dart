@@ -56,7 +56,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               ],
             ),
             SizedBox(
-              height: 100.h,
+              height: 70.h,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
