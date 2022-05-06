@@ -37,6 +37,9 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
 
   @override
   Widget build(BuildContext context) {
+    for (int i = 0; i < widget.dayWater.waterValues!.length; i++) {
+      drankMl = widget.dayWater.waterValues![i];
+    }
     return Scaffold(
         backgroundColor: Color(0xFF243A6B),
         bottomNavigationBar: Container(

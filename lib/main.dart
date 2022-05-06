@@ -11,7 +11,6 @@ import 'package:x_wet/models/user_data/user.dart';
 import 'package:x_wet/utils/color_palette/colors.dart';
 import 'package:x_wet/utils/routes/routes.dart';
 
-bool seen = false;
 bool premium = false;
 
 Future<void> main() async {
@@ -35,6 +34,9 @@ Future<void> main() async {
   // await boxs.clear();
   // await box.clear();
   //if(box.isEmpty==true)box.put('userdata', UserData());
+  final prem = await Hive.openBox<bool>('premium');
+  if (prem.values.isEmpty) await prem.put('premium', false);
+  premium = prem.values.first;
   runApp(const App());
 }
 
@@ -51,7 +53,7 @@ class App extends StatelessWidget {
           unselectedWidgetColor: AppColors.lightBlue.withOpacity(0.3),
         ),
         routes: routes,
-        initialRoute: seen==true && premium==true
+        initialRoute: premium==true
             ? MainNavigationRoutes.main
             : MainNavigationRoutes.onboarding,
         debugShowCheckedModeBanner: false,
